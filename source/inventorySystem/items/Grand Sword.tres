@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=5 format=3 uid="uid://w3v15mc005bk"]
+
+[ext_resource type="Script" path="res://addons/inventory-system/core/item_category.gd" id="1_oa65h"]
+[ext_resource type="Texture2D" uid="uid://ofxfk3l651jd" path="res://assets/icons/Buch's RPG Items/sword.png" id="2_25ic1"]
+[ext_resource type="Resource" uid="uid://cbkqynoafdfw8" path="res://source/inventorySystem/itemCategory/Weapon.tres" id="2_oyujg"]
+[ext_resource type="Script" path="res://addons/inventory-system/core/inventory_item.gd" id="3_muxwr"]
+
+[resource]
+script = ExtResource("3_muxwr")
+id = 3
+max_stack = 1
+name = "Grand Sword"
+icon = ExtResource("2_25ic1")
+weight = 0.0
+properties = {
+"dropped_item_model": "res://source/match/units/non-player/PickupItem.tscn"
+}
+categories = Array[ExtResource("1_oa65h")]([ExtResource("2_oyujg")])

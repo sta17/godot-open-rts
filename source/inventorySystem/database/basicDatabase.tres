@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="InventoryDatabase" load_steps=6 format=3 uid="uid://c3sij7uw33ypl"]
+
+[ext_resource type="Script" path="res://addons/inventory-system/core/item_category.gd" id="1_0p3h2"]
+[ext_resource type="Resource" uid="uid://do01dkr1ks62e" path="res://source/inventorySystem/itemCategory/Consumables.tres" id="2_ebkja"]
+[ext_resource type="Script" path="res://addons/inventory-system/core/inventory_item.gd" id="2_yubx2"]
+[ext_resource type="Script" path="res://addons/inventory-system/core/inventory_database.gd" id="3_lhkf5"]
+[ext_resource type="Resource" uid="uid://dsp6nqt1fgk6f" path="res://source/inventorySystem/items/Bottle.tres" id="4_84xh3"]
+
+[resource]
+script = ExtResource("3_lhkf5")
+items = Array[ExtResource("2_yubx2")]([ExtResource("4_84xh3")])
+item_categories = Array[ExtResource("1_0p3h2")]([ExtResource("2_ebkja")])

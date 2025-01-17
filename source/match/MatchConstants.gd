@@ -58,6 +58,10 @@ class Resources:
 		const MATERIAL_PATH = "res://source/match/resources/materials/resource_b.material.tres"
 		const COLLECTING_TIME_S = 2.0
 
+class Items:
+	class Minimap:
+			const COLOR = Color.YELLOW
+			const MATERIAL_PATH = "res://source/match/resources/materials/resource_a.material.tres"
 
 class Units:
 	const PRODUCTION_COSTS = {
@@ -490,6 +494,18 @@ class Units:
 			"icon":"res://assets/icons/Stevens/Black and White/AA32 BW.png",
 			"attack_domains": [Navigation.Domain.AIR],
 		},
+		"res://source/match/units/SpecialCharacter.tscn":
+		{
+			"sight_range": 8.0,
+			"hp": 20,
+			"hp_max": 20,
+			"attack_damage": 2,
+			"attack_interval": 1.0,
+			"attack_range": 5.0,
+			"movement_speed":4,
+			"icon":"res://assets/icons/Stevens/Black and White/SC.png",
+			"attack_domains": [Navigation.Domain.TERRAIN, Navigation.Domain.AIR],
+		},
 	}
 	const PROJECTILES = {
 		"res://source/match/units/Helicopter.tscn":
@@ -499,6 +515,8 @@ class Units:
 		"res://source/match/units/AntiGroundTurret.tscn":
 		"res://source/match/units/projectiles/CannonShell.tscn",
 		"res://source/match/units/AntiAirTurret.tscn":
+		"res://source/match/units/projectiles/Rocket.tscn",
+		"res://source/match/units/SpecialCharacter.tscn":
 		"res://source/match/units/projectiles/Rocket.tscn"
 	}
 	const ADHERENCE_MARGIN_M = 0.3  # TODO: try lowering while fixing a 'push' problem
@@ -512,49 +530,15 @@ class VoiceNarrator:
 	enum Events {
 		MATCH_STARTED,
 		MATCH_ABORTED,
-		MATCH_FINISHED_WITH_VICTORY,
-		MATCH_FINISHED_WITH_DEFEAT,
-		BASE_UNDER_ATTACK,
-		UNIT_UNDER_ATTACK,
 		UNIT_LOST,
 		UNIT_PRODUCTION_STARTED,
-		UNIT_PRODUCTION_FINISHED,
-		UNIT_CONSTRUCTION_FINISHED,
-		UNIT_HELLO,
-		UNIT_ACK_1,
-		UNIT_ACK_2,
 		NOT_ENOUGH_RESOURCES,
 	}
 
 	const EVENT_TO_ASSET_MAPPING = {
-		Events.MATCH_STARTED:
-		preload("res://assets/voice/english/ttsmaker-com-148-alayna-us/battle_control_online.ogg"),
-		Events.MATCH_ABORTED:
-		preload("res://assets/voice/english/ttsmaker-com-148-alayna-us/battle_control_offline.ogg"),
-		Events.MATCH_FINISHED_WITH_VICTORY:
-		preload("res://assets/voice/english/ttsmaker-com-148-alayna-us/you_are_victorious.ogg"),
-		Events.MATCH_FINISHED_WITH_DEFEAT:
-		preload("res://assets/voice/english/ttsmaker-com-148-alayna-us/you_have_lost.ogg"),
-		Events.BASE_UNDER_ATTACK:
-		preload(
-			"res://assets/voice/english/ttsmaker-com-148-alayna-us/your_base_is_under_attack.ogg"
-		),
-		Events.UNIT_UNDER_ATTACK:
-		preload("res://assets/voice/english/ttsmaker-com-148-alayna-us/unit_under_attack.ogg"),
-		Events.UNIT_LOST:
-		preload("res://assets/voice/english/ttsmaker-com-148-alayna-us/unit_lost.ogg"),
-		Events.UNIT_PRODUCTION_STARTED:
-		preload("res://assets/voice/english/ttsmaker-com-148-alayna-us/training.ogg"),
-		Events.UNIT_PRODUCTION_FINISHED:
-		preload("res://assets/voice/english/ttsmaker-com-148-alayna-us/unit_ready.ogg"),
-		Events.UNIT_CONSTRUCTION_FINISHED:
-		preload("res://assets/voice/english/ttsmaker-com-148-alayna-us/construction_complete.ogg"),
-		Events.UNIT_HELLO:
-		preload("res://assets/voice/english/ttsmaker-com-2704-jackson-us/sir.ogg"),
-		Events.UNIT_ACK_1:
-		preload("res://assets/voice/english/ttsmaker-com-2704-jackson-us/yes_sir.ogg"),
-		Events.UNIT_ACK_2:
-		preload("res://assets/voice/english/ttsmaker-com-2704-jackson-us/acknowledged.ogg"),
-		Events.NOT_ENOUGH_RESOURCES:
-		preload("res://assets/voice/english/ttsmaker-com-148-alayna-us/not_enough_resources.ogg"),
+		Events.MATCH_STARTED: preload("res://assets/voice/english/battle_control_online.ogg"),
+		Events.MATCH_ABORTED: preload("res://assets/voice/english/battle_control_offline.ogg"),
+		Events.UNIT_LOST: preload("res://assets/voice/english/unit_lost.ogg"),
+		Events.UNIT_PRODUCTION_STARTED: preload("res://assets/voice/english/training.ogg"),
+		Events.NOT_ENOUGH_RESOURCES: preload("res://assets/voice/english/not_enough_resources.ogg"),
 	}

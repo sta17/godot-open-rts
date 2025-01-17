@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cwcedr6jj7yty"]
+[gd_scene load_steps=3 format=3 uid="uid://cwcedr6jj7yty"]
 
 [ext_resource type="Script" path="res://source/match/hud/UnitMenus.gd" id="1_hugbq"]
+[ext_resource type="Theme" uid="uid://bd4ibvqetsafl" path="res://source/match/hud/General.theme" id="2_n560l"]
 
 [node name="UnitMenus" type="PanelContainer"]
 script = ExtResource("1_hugbq")
@@ -19,70 +20,87 @@ columns = 4
 [node name="Panel" type="Panel" parent="MarginContainer/BackgroundGrid"]
 custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
+theme = ExtResource("2_n560l")
 
 [node name="Panel2" type="Panel" parent="MarginContainer/BackgroundGrid"]
 custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
+theme = ExtResource("2_n560l")
 
 [node name="Panel3" type="Panel" parent="MarginContainer/BackgroundGrid"]
 custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
+theme = ExtResource("2_n560l")
 
 [node name="Panel4" type="Panel" parent="MarginContainer/BackgroundGrid"]
 custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
+theme = ExtResource("2_n560l")
 
 [node name="Panel5" type="Panel" parent="MarginContainer/BackgroundGrid"]
 custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
+theme = ExtResource("2_n560l")
 
 [node name="Panel6" type="Panel" parent="MarginContainer/BackgroundGrid"]
 custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
+theme = ExtResource("2_n560l")
 
 [node name="Panel7" type="Panel" parent="MarginContainer/BackgroundGrid"]
 custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
+theme = ExtResource("2_n560l")
 
 [node name="Panel8" type="Panel" parent="MarginContainer/BackgroundGrid"]
 custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
+theme = ExtResource("2_n560l")
 
 [node name="Panel9" type="Panel" parent="MarginContainer/BackgroundGrid"]
 custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
+theme = ExtResource("2_n560l")
 
 [node name="Panel10" type="Panel" parent="MarginContainer/BackgroundGrid"]
 custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
+theme = ExtResource("2_n560l")
 
 [node name="Panel11" type="Panel" parent="MarginContainer/BackgroundGrid"]
 custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
+theme = ExtResource("2_n560l")
 
 [node name="Panel12" type="Panel" parent="MarginContainer/BackgroundGrid"]
 custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
+theme = ExtResource("2_n560l")
 
 [node name="Panel13" type="Panel" parent="MarginContainer/BackgroundGrid"]
 custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
+theme = ExtResource("2_n560l")
 
 [node name="Panel14" type="Panel" parent="MarginContainer/BackgroundGrid"]
 custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
+theme = ExtResource("2_n560l")
 
 [node name="Panel15" type="Panel" parent="MarginContainer/BackgroundGrid"]
 custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
+theme = ExtResource("2_n560l")
 
 [node name="Panel16" type="Panel" parent="MarginContainer/BackgroundGrid"]
 custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
+theme = ExtResource("2_n560l")
 
 [node name="Buttons" type="GridContainer" parent="MarginContainer"]
 custom_minimum_size = Vector2(204, 204)
 layout_mode = 2
+theme = ExtResource("2_n560l")
 columns = 4
 
 [node name="Button00" type="Button" parent="MarginContainer/Buttons"]

@@ -2,7 +2,7 @@
 extends Node
 
 @export_group("Game")
-@export var show_logos_on_startup = true
+@export var show_logos_on_startup = false
 @export var save_user_files_in_tmp = false
 
 @export_group("Match")
@@ -12,5 +12,5 @@ extends Node
 @export var allow_navigation_rebaking = true
 
 @export_group("Match/Debug")
-@export var frame_incrementer = false
-@export var god_mode = false
+@export var frame_incrementer = true
+@export var god_mode = true

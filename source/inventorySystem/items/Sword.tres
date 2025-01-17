@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=5 format=3 uid="uid://dfmvhf2fovjga"]
+
+[ext_resource type="Script" path="res://addons/inventory-system/core/item_category.gd" id="1_8em72"]
+[ext_resource type="Texture2D" uid="uid://dwr1pwli5lxqe" path="res://assets/icons/Buch's RPG Items/sword 3.png" id="2_1u1iw"]
+[ext_resource type="Resource" uid="uid://cbkqynoafdfw8" path="res://source/inventorySystem/itemCategory/Weapon.tres" id="2_rk27m"]
+[ext_resource type="Script" path="res://addons/inventory-system/core/inventory_item.gd" id="3_bromd"]
+
+[resource]
+script = ExtResource("3_bromd")
+id = 6
+max_stack = 1
+name = "Sword"
+icon = ExtResource("2_1u1iw")
+weight = 0.0
+properties = {
+"dropped_item_model": "res://source/match/units/non-player/PickupItem.tscn"
+}
+categories = Array[ExtResource("1_8em72")]([ExtResource("2_rk27m")])

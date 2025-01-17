@@ -23,7 +23,8 @@ var radius:
 var movement_domain:
 	get = _get_movement_domain
 var movement_speed:
-	get = _get_movement_speed
+	get = _get_movement_speed,
+	set = _set_movement_speed
 var sight_range = null
 var player:
 	get:
@@ -59,10 +60,7 @@ func is_revealing():
 
 
 func _set_hp(value):
-	var old_hp = hp
 	hp = max(0, value)
-	if old_hp != null and hp < old_hp:
-		MatchSignals.unit_damaged.emit(self)
 	hp_changed.emit()
 	if hp == 0:
 		_handle_unit_death()
@@ -102,6 +100,12 @@ func _get_movement_speed():
 	if find_child("Movement") != null:
 		return find_child("Movement").speed
 	return 0.0
+
+func _set_movement_speed(value):
+	movement_speed = value
+	if find_child("Movement") != null:
+		var movementNode = find_child("Movement")
+		movementNode.speed = value
 
 
 func _is_movable():

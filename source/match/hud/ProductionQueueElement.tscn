@@ -1,11 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://rtkiiletj253"]
+[gd_scene load_steps=5 format=3 uid="uid://rtkiiletj253"]
 
+[ext_resource type="Theme" uid="uid://bd4ibvqetsafl" path="res://source/match/hud/General.theme" id="1_5w1l4"]
 [ext_resource type="Script" path="res://source/match/hud/ProductionQueueElement.gd" id="1_yaio2"]
+[ext_resource type="LabelSettings" uid="uid://dn3jb3v2oj21p" path="res://source/match/hud/BlackOutlined10pLabel.tres" id="3_yra5r"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ar725"]
 
 [node name="ProductionQueueElement" type="Button"]
 custom_minimum_size = Vector2(48, 48)
+theme = ExtResource("1_5w1l4")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ar725")
 text = "Y"
 icon_alignment = 1
@@ -21,5 +24,6 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 10
 text = "10%"
+label_settings = ExtResource("3_yra5r")
 horizontal_alignment = 2
 vertical_alignment = 2

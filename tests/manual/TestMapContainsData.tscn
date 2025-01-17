@@ -1,0 +1,53 @@
+[gd_scene load_steps=13 format=3 uid="uid://bg46std4toxib"]
+
+[ext_resource type="PackedScene" uid="uid://camns8fqod8d4" path="res://source/match/Match.tscn" id="1_1atw7"]
+[ext_resource type="Script" path="res://tests/manual/Match.gd" id="2_aq8jb"]
+[ext_resource type="Script" path="res://source/data-model/MatchSettings.gd" id="3_iejut"]
+[ext_resource type="PackedScene" uid="uid://cbi8kei4hgafl" path="res://tests/manual/maps/PlainAndSimpleModified.tscn" id="4_knpwd"]
+[ext_resource type="Shader" path="res://source/shaders/3d/simple_fog_of_war.gdshader" id="7_u5c3n"]
+[ext_resource type="Shader" path="res://source/shaders/2d/white_transparent.gdshader" id="8_a7vmy"]
+
+[sub_resource type="Resource" id="Resource_qqc8i"]
+script = ExtResource("3_iejut")
+players = Array[Resource]([])
+visibility = 0
+visible_player = 0
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_v46ss"]
+viewport_path = NodePath("FogOfWar/CombinedViewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_67o07"]
+resource_local_to_scene = true
+render_priority = 1
+shader = ExtResource("7_u5c3n")
+shader_parameter/color = Color(0, 0, 0, 1)
+shader_parameter/texture_units_per_world_unit = 2
+shader_parameter/debug_texture_view = false
+shader_parameter/world_visibility_texture = SubResource("ViewportTexture_v46ss")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_p8sg3"]
+viewport_path = NodePath("FogOfWar/CombinedViewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nowta"]
+resource_local_to_scene = true
+shader = ExtResource("8_a7vmy")
+shader_parameter/reference_texture = SubResource("ViewportTexture_p8sg3")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_0q1lw"]
+viewport_path = NodePath("UI Collection/HUD/MarginContainer/Minimap/MarginContainer/MinimapViewport")
+
+[node name="Match" instance=ExtResource("1_1atw7")]
+script = ExtResource("2_aq8jb")
+allow_resources_deficit_spending = true
+settings = SubResource("Resource_qqc8i")
+
+[node name="Map" parent="." index="0" instance=ExtResource("4_knpwd")]
+
+[node name="ScreenOverlay" parent="FogOfWar" index="1"]
+material_override = SubResource("ShaderMaterial_67o07")
+
+[node name="FogOfWarMask" parent="UI Collection/HUD/MarginContainer/Minimap/MarginContainer/MinimapViewport" index="3"]
+material = SubResource("ShaderMaterial_nowta")
+
+[node name="MinimapTextureRect" parent="UI Collection/HUD/MarginContainer/Minimap/MarginContainer" index="1"]
+texture = SubResource("ViewportTexture_0q1lw")

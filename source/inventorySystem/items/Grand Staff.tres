@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=5 format=3 uid="uid://ci3csqupvo3fc"]
+
+[ext_resource type="Script" path="res://addons/inventory-system/core/item_category.gd" id="1_mroyu"]
+[ext_resource type="Resource" uid="uid://cbkqynoafdfw8" path="res://source/inventorySystem/itemCategory/Weapon.tres" id="2_jgev3"]
+[ext_resource type="Texture2D" uid="uid://dua2qkmlb368h" path="res://assets/icons/Buch's RPG Items/staff.png" id="2_rwkr2"]
+[ext_resource type="Script" path="res://addons/inventory-system/core/inventory_item.gd" id="3_5e0cf"]
+
+[resource]
+script = ExtResource("3_5e0cf")
+id = 2
+max_stack = 3
+name = "Grand Staff"
+icon = ExtResource("2_rwkr2")
+weight = 0.0
+properties = {
+"dropped_item_model": "res://source/match/units/non-player/PickupItem.tscn"
+}
+categories = Array[ExtResource("1_mroyu")]([ExtResource("2_jgev3")])

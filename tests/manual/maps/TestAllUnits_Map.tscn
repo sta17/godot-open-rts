@@ -127,8 +127,6 @@ environment = SubResource("Environment_xtxha")
 [node name="Players_Map" type="Node3D" parent="." index="5"]
 
 [node name="Human" parent="Players_Map" index="0" instance=ExtResource("5_bn5q0")]
-resource_a = 10
-resource_b = 10
 
 [node name="CommandCenter" parent="Players_Map/Human" index="1" instance=ExtResource("6_gvp4x")]
 transform = Transform3D(-0.996198, 0, -0.087121, 0, 1, 0, 0.087121, 0, -0.996198, 12.2249, 0, 10.6336)

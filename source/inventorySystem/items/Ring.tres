@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=4 format=3 uid="uid://bunkm51iywpcj"]
+
+[ext_resource type="Script" path="res://addons/inventory-system/core/item_category.gd" id="1_r3tco"]
+[ext_resource type="Texture2D" uid="uid://maygl30ejj8m" path="res://assets/icons/Buch's RPG Items/ring.png" id="2_4ttmc"]
+[ext_resource type="Script" path="res://addons/inventory-system/core/inventory_item.gd" id="3_4clne"]
+
+[resource]
+script = ExtResource("3_4clne")
+id = 4
+max_stack = 1
+name = "Ring"
+icon = ExtResource("2_4ttmc")
+weight = 0.0
+properties = {
+"dropped_item_model": "res://source/match/units/non-player/PickupItem.tscn"
+}
+categories = Array[ExtResource("1_r3tco")]([])

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=5 format=3 uid="uid://dsp6nqt1fgk6f"]
+
+[ext_resource type="Script" path="res://addons/inventory-system/core/item_category.gd" id="1_tosgy"]
+[ext_resource type="Resource" uid="uid://do01dkr1ks62e" path="res://source/inventorySystem/itemCategory/Consumables.tres" id="2_u4vqf"]
+[ext_resource type="Texture2D" uid="uid://dcnx0do2ulufc" path="res://assets/icons/Buch's RPG Items/bottle.png" id="3_fhavl"]
+[ext_resource type="Script" path="res://addons/inventory-system/core/inventory_item.gd" id="3_wsbux"]
+
+[resource]
+script = ExtResource("3_wsbux")
+id = 1
+max_stack = 10
+name = "Bottle"
+icon = ExtResource("3_fhavl")
+weight = 0.0
+properties = {
+"dropped_item_model": "res://source/match/units/non-player/PickupItem.tscn"
+}
+categories = Array[ExtResource("1_tosgy")]([ExtResource("2_u4vqf")])

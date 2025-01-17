@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=5 format=3 uid="uid://bvk5hpwg14644"]
+
+[ext_resource type="Script" path="res://addons/inventory-system/core/item_category.gd" id="1_agb50"]
+[ext_resource type="Texture2D" uid="uid://dwxdtqibhjigg" path="res://assets/icons/Buch's RPG Items/staff2.png" id="2_7wxa7"]
+[ext_resource type="Resource" uid="uid://cbkqynoafdfw8" path="res://source/inventorySystem/itemCategory/Weapon.tres" id="2_lat8n"]
+[ext_resource type="Script" path="res://addons/inventory-system/core/inventory_item.gd" id="3_14f22"]
+
+[resource]
+script = ExtResource("3_14f22")
+id = 5
+max_stack = 1
+name = "Staff"
+icon = ExtResource("2_7wxa7")
+weight = 0.0
+properties = {
+"dropped_item_model": "res://source/match/units/non-player/PickupItem.tscn"
+}
+categories = Array[ExtResource("1_agb50")]([ExtResource("2_lat8n")])

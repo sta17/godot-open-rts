@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ItemCategory" load_steps=3 format=3 uid="uid://do01dkr1ks62e"]
+
+[ext_resource type="Texture2D" uid="uid://dcnx0do2ulufc" path="res://assets/icons/Buch's RPG Items/bottle.png" id="1_ybh0p"]
+[ext_resource type="Script" path="res://addons/inventory-system/core/item_category.gd" id="2_30mx8"]
+
+[resource]
+script = ExtResource("2_30mx8")
+name = "Consumables"
+color = Color(1, 1, 1, 1)
+icon = ExtResource("1_ybh0p")

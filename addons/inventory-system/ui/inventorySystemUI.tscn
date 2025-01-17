@@ -1,0 +1,102 @@
+[gd_scene load_steps=6 format=3 uid="uid://dnjv4h8oqcg56"]
+
+[ext_resource type="PackedScene" uid="uid://0gesiykkn4cf" path="res://addons/inventory-system/ui/slotUI.tscn" id="1_nkk60"]
+[ext_resource type="Script" path="res://addons/inventory-system/ui/inventorySystemUI.gd" id="1_vpfmm"]
+[ext_resource type="PackedScene" uid="uid://c01o8r81deiya" path="res://addons/inventory-system/ui/transaction_slot_ui.tscn" id="2_318ea"]
+[ext_resource type="PackedScene" uid="uid://mlcouey5mnoh" path="res://addons/inventory-system/ui/inventoryUI.tscn" id="3_fuf3e"]
+[ext_resource type="Script" path="res://addons/inventory-system/ui/hotbar_ui.gd" id="4_wj2ji"]
+
+[node name="Inventory System UI" type="Control"]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_vpfmm")
+
+[node name="TransactionSlotUI" parent="." instance=ExtResource("2_318ea")]
+
+[node name="Old" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="DropArea" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PlayerInventoryUI" parent="." instance=ExtResource("3_fuf3e")]
+custom_minimum_size = Vector2(436, 244)
+layout_mode = 1
+offset_left = -332.0
+offset_top = -205.0
+offset_right = 104.0
+offset_bottom = 39.0
+
+[node name="LootInventoryUI" parent="." instance=ExtResource("3_fuf3e")]
+visible = false
+custom_minimum_size = Vector2(436, 140)
+layout_mode = 1
+anchors_preset = 4
+anchor_left = 0.0
+anchor_right = 0.0
+offset_left = 0.0
+offset_top = -70.0
+offset_right = 436.0
+offset_bottom = 70.0
+grow_horizontal = 1
+
+[node name="HotbarUI" type="Control" parent="." node_paths=PackedStringArray("slots_container")]
+texture_filter = 1
+custom_minimum_size = Vector2(234, 78)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -213.0
+offset_right = 213.0
+offset_bottom = 78.0
+grow_horizontal = 2
+script = ExtResource("4_wj2ji")
+slot_ui_scene = ExtResource("1_nkk60")
+slots_container = NodePath("Control/UI Inventory")
+
+[node name="Control" type="Control" parent="HotbarUI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 386.0
+offset_bottom = 38.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="UI Inventory" type="GridContainer" parent="HotbarUI/Control"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 20.0
+offset_right = 4.0
+offset_bottom = 20.0
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 8
+
+[connection signal="gui_input" from="Old" to="TransactionSlotUI" method="_on_drop_area_gui_input"]
+[connection signal="mouse_entered" from="Old" to="TransactionSlotUI" method="_on_drop_area_mouse_entered"]
+[connection signal="mouse_exited" from="Old" to="TransactionSlotUI" method="_on_drop_area_mouse_exited"]
+[connection signal="gui_input" from="DropArea" to="TransactionSlotUI" method="_on_control_gui_input"]
+[connection signal="mouse_entered" from="DropArea" to="TransactionSlotUI" method="_on_control_mouse_entered"]
+[connection signal="mouse_exited" from="DropArea" to="TransactionSlotUI" method="_on_control_mouse_exited"]
+
+[editable path="TransactionSlotUI"]
