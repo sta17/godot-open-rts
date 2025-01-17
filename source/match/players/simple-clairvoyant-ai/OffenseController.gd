@@ -1,3 +1,4 @@
+@icon("res://assets/icons/Stevens/Godot Editor Icons/AI.png")
 extends Node
 
 signal resources_required(resources, metadata)

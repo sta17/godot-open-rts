@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="cancelAction" load_steps=3 format=3 uid="uid://dxl81dvagmb8m"]
+
+[ext_resource type="Texture2D" uid="uid://b51ut68j64fmb" path="res://assets/icons/Stevens/Black and White/X32 BW.png" id="1_a03wy"]
+[ext_resource type="Script" path="res://source/match/units/unitUIAbilities/cancelAction.gd" id="2_8vxrm"]
+
+[resource]
+script = ExtResource("2_8vxrm")
+units = []
+icon = ExtResource("1_a03wy")
+tooltip_Alternativ = "res://source/match/units/unitUIAbilities/CancelAction.tres"

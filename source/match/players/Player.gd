@@ -1,3 +1,4 @@
+@icon("res://assets/icons/Stevens/Godot Editor Icons/icon_character.png")
 extends Node3D
 
 signal changed

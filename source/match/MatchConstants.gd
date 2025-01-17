@@ -1,3 +1,4 @@
+@icon("res://assets/icons/Stevens/Godot Editor Icons/Gear.png")
 const OWNED_PLAYER_CIRCLE_COLOR = Color.GREEN
 const ADVERSARY_PLAYER_CIRCLE_COLOR = Color.RED
 const RESOURCE_CIRCLE_COLOR = Color.YELLOW
@@ -127,12 +128,251 @@ class Units:
 			"resource_b": 2,
 		},
 	}
+	const DEFAULT_TOOLTIP = {
+		"res://source/match/units/unitUIAbilities/CancelAction.tres":
+			{
+				"format": "{0}",
+				"content":
+					[
+					"CANCEL_CURRENT_ACTION"
+					],
+				"translate": 
+				[
+					true,
+				],
+			},
+		"res://source/match/units/Drone.tscn":
+		{
+			"format": "{0} - {1}\n{2} HP\n{3}: {4}, {5}: {6}",
+			"content": 
+				[
+					"DRONE",
+					"DRONE_DESCRIPTION",
+					DEFAULT_PROPERTIES["res://source/match/units/Drone.tscn"]["hp_max"],
+					"RESOURCE_A",
+					PRODUCTION_COSTS["res://source/match/units/Drone.tscn"]["resource_a"],
+					"RESOURCE_B",
+					PRODUCTION_COSTS["res://source/match/units/Drone.tscn"]["resource_b"]
+				],
+			"translate": 
+				[
+					true,
+					true,
+					false,
+					true,
+					false,
+					true,
+					false
+				],
+		},
+		"res://source/match/units/Worker.tscn":
+		{
+			"format": "{0} - {1}\n{2} HP\n{3}: {4}, {5}: {6}",
+			"content": 
+				[
+					"WORKER",
+					"WORKER_DESCRIPTION",
+					DEFAULT_PROPERTIES["res://source/match/units/Worker.tscn"]["hp_max"],
+					"RESOURCE_A",
+					PRODUCTION_COSTS["res://source/match/units/Worker.tscn"]["resource_a"],
+					"RESOURCE_B",
+					PRODUCTION_COSTS["res://source/match/units/Worker.tscn"]["resource_b"]
+				],
+			"translate": 
+				[
+					true,
+					true,
+					false,
+					true,
+					false,
+					true,
+					false
+				],
+		},
+		"res://source/match/units/Helicopter.tscn":
+		{
+			"format": "{0} - {1}\n{2} HP, {3} DPS\n{4}: {5}, {6}: {7}",
+			"content": 
+				[
+					"HELICOPTER",
+					"HELICOPTER_DESCRIPTION",
+					DEFAULT_PROPERTIES["res://source/match/units/Helicopter.tscn"]["hp_max"],
+					DEFAULT_PROPERTIES["res://source/match/units/Helicopter.tscn"]["attack_damage"] * DEFAULT_PROPERTIES["res://source/match/units/Helicopter.tscn"]["attack_interval"],
+					"RESOURCE_A",
+					PRODUCTION_COSTS["res://source/match/units/Helicopter.tscn"]["resource_a"],
+					"RESOURCE_B",
+					PRODUCTION_COSTS["res://source/match/units/Helicopter.tscn"]["resource_b"]
+				],
+			"translate": 
+				[
+					true,
+					true,
+					false,
+					false,
+					true,
+					false,
+					true,
+					false
+				],
+		},
+		"res://source/match/units/Tank.tscn":
+		{
+			"format": "{0} - {1}\n{2} HP, {3} DPS\n{4}: {5}, {6}: {7}",
+			"content": 
+				[
+					"TANK",
+					"TANK_DESCRIPTION",
+					DEFAULT_PROPERTIES["res://source/match/units/Tank.tscn"]["hp_max"],
+					DEFAULT_PROPERTIES["res://source/match/units/Tank.tscn"]["attack_damage"] * DEFAULT_PROPERTIES["res://source/match/units/Tank.tscn"]["attack_interval"],
+					"RESOURCE_A",
+					PRODUCTION_COSTS["res://source/match/units/Tank.tscn"]["resource_a"],
+					"RESOURCE_B",
+					PRODUCTION_COSTS["res://source/match/units/Tank.tscn"]["resource_b"]
+				],
+			"translate": 
+				[
+					true,
+					true,
+					false,
+					false,
+					true,
+					false,
+					true,
+					false
+				],
+		},
+		"res://source/match/units/CommandCenter.tscn":
+		{
+			"format": "{0} - {1}\n{2} HP\n{3}: {4}, {5}: {6}",
+			"content": 
+				[
+					"CC",
+					"CC_DESCRIPTION",
+					DEFAULT_PROPERTIES["res://source/match/units/CommandCenter.tscn"]["hp_max"],
+					"RESOURCE_A",
+					CONSTRUCTION_COSTS["res://source/match/units/CommandCenter.tscn"]["resource_a"],
+					"RESOURCE_B",
+					CONSTRUCTION_COSTS["res://source/match/units/CommandCenter.tscn"]["resource_b"]
+				],
+			"translate": 
+				[
+					true,
+					true,
+					false,
+					true,
+					false,
+					true,
+					false
+				],
+		},
+		"res://source/match/units/VehicleFactory.tscn":
+		{
+			"format": "{0} - {1}\n{2} HP\n{3}: {4}, {5}: {6}",
+			"content": 
+				[
+					"VEHICLE_FACTORY",
+					"VEHICLE_FACTORY_DESCRIPTION",
+					DEFAULT_PROPERTIES["res://source/match/units/VehicleFactory.tscn"]["hp_max"],
+					"RESOURCE_A",
+					CONSTRUCTION_COSTS["res://source/match/units/VehicleFactory.tscn"]["resource_a"],
+					"RESOURCE_B",
+					CONSTRUCTION_COSTS["res://source/match/units/VehicleFactory.tscn"]["resource_b"]
+				],
+			"translate": 
+				[
+					true,
+					true,
+					false,
+					true,
+					false,
+					true,
+					false,
+				],
+		},
+		"res://source/match/units/AircraftFactory.tscn":
+		{
+			"format": "{0} - {1}\n{2} HP\n{3}: {4}, {5}: {6}",
+			"content": 
+				[
+					"AIRCRAFT_FACTORY",
+					"AIRCRAFT_FACTORY_DESCRIPTION",
+					DEFAULT_PROPERTIES["res://source/match/units/AircraftFactory.tscn"]["hp_max"],
+					"RESOURCE_A",
+					CONSTRUCTION_COSTS["res://source/match/units/AircraftFactory.tscn"]["resource_a"],
+					"RESOURCE_B",
+					CONSTRUCTION_COSTS["res://source/match/units/AircraftFactory.tscn"]["resource_b"],
+				],
+			"translate": 
+				[
+					true,
+					true,
+					false,
+					true,
+					false,
+					true,
+					false,
+				],
+		},
+		"res://source/match/units/AntiGroundTurret.tscn":
+		{
+			"format": "{0} - {1}\n{2} HP, {3} DPS\n{4}: {5}, {6}: {7}",
+			"content": 
+				[
+					"AG_TURRET",
+					"AG_TURRET_DESCRIPTION",
+					DEFAULT_PROPERTIES["res://source/match/units/AntiGroundTurret.tscn"]["hp_max"],
+					DEFAULT_PROPERTIES["res://source/match/units/AntiGroundTurret.tscn"]["attack_damage"] * DEFAULT_PROPERTIES["res://source/match/units/AntiGroundTurret.tscn"]["attack_interval"],
+					"RESOURCE_A",
+					CONSTRUCTION_COSTS["res://source/match/units/AntiGroundTurret.tscn"]["resource_a"],
+					"RESOURCE_B",
+					CONSTRUCTION_COSTS["res://source/match/units/AntiGroundTurret.tscn"]["resource_b"]
+				],
+			"translate": 
+				[
+					true,
+					true,
+					false,
+					false,
+					true,
+					false,
+					true,
+					false
+				],
+		},
+		"res://source/match/units/AntiAirTurret.tscn":
+		{
+			"format": "{0} - {1}\n{2} HP, {3} DPS\n{4}: {5}, {6}: {7}",
+			"content": 
+				[
+					"AA_TURRET",
+					"AA_TURRET_DESCRIPTION",
+					DEFAULT_PROPERTIES["res://source/match/units/AntiAirTurret.tscn"]["hp_max"],
+					(DEFAULT_PROPERTIES["res://source/match/units/AntiAirTurret.tscn"]["attack_damage"]) * (DEFAULT_PROPERTIES["res://source/match/units/AntiAirTurret.tscn"]["attack_interval"]),
+					"RESOURCE_A",
+					CONSTRUCTION_COSTS["res://source/match/units/AntiAirTurret.tscn"]["resource_a"],
+					"RESOURCE_B",
+					CONSTRUCTION_COSTS["res://source/match/units/AntiAirTurret.tscn"]["resource_b"]
+				],
+			"translate":
+				[
+					true,
+					true,
+					false,
+					false,
+					true,
+					false,
+					true,
+					false
+				],
+		},
+	}
 	const DEFAULT_PROPERTIES = {
 		"res://source/match/units/Drone.tscn":
 		{
 			"sight_range": 10.0,
 			"hp": 6,
 			"hp_max": 6,
+			"icon":"res://assets/icons/Stevens/Black and White/D32 BW.png",
 		},
 		"res://source/match/units/Worker.tscn":
 		{
@@ -140,6 +380,19 @@ class Units:
 			"hp": 6,
 			"hp_max": 6,
 			"resources_max": 2,
+			"icon":"res://assets/icons/Stevens/Black and White/W32 BW.png",
+			"unitAbilities": [
+				null, null, null, 
+				"res://source/match/units/unitUIAbilities/CancelAction.tres", 
+				null, null,null, null, 
+				"res://source/match/units/unitUIAbilities/buildAntiGroundTurret.tres", 
+				"res://source/match/units/unitUIAbilities/buildAntiAirTurret.tres", 
+				null, null, 
+				"res://source/match/units/unitUIAbilities/buildCommandCenter.tres", 
+				"res://source/match/units/unitUIAbilities/buildVehicleFactory.tres",
+				"res://source/match/units/unitUIAbilities/buildAircraftFactory.tres", 
+				null
+				],
 		},
 		"res://source/match/units/Helicopter.tscn":
 		{
@@ -149,6 +402,7 @@ class Units:
 			"attack_damage": 1,
 			"attack_interval": 1.0,
 			"attack_range": 5.0,
+			"icon":"res://assets/icons/Stevens/Black and White/H32 BW.png",
 			"attack_domains": [Navigation.Domain.TERRAIN, Navigation.Domain.AIR],
 		},
 		"res://source/match/units/Tank.tscn":
@@ -159,6 +413,7 @@ class Units:
 			"attack_damage": 2,
 			"attack_interval": 0.75,
 			"attack_range": 5.0,
+			"icon":"res://assets/icons/Stevens/Black and White/T32 BW.png",
 			"attack_domains": [Navigation.Domain.TERRAIN],
 		},
 		"res://source/match/units/CommandCenter.tscn":
@@ -166,18 +421,46 @@ class Units:
 			"sight_range": 10.0,
 			"hp": 20,
 			"hp_max": 20,
+			"icon":"res://assets/icons/Stevens/Black and White/CC32 BW.png",
+			"unitAbilities": [
+				null, null, null, 
+				"res://source/match/units/unitUIAbilities/CancelAction.tres", 
+				null, null, null, null, 
+				null, null, null, null, 
+				"res://source/match/units/unitUIAbilities/produceWorker.tres", 
+				null, null, null
+				],
 		},
 		"res://source/match/units/VehicleFactory.tscn":
 		{
 			"sight_range": 8.0,
 			"hp": 16,
 			"hp_max": 16,
+			"icon":"res://assets/icons/Stevens/Black and White/VF32 BW.png",
+			"unitAbilities": [
+				null, null, null, 
+				"res://source/match/units/unitUIAbilities/CancelAction.tres", 
+				null, null, null, null, 
+				null, null, null, null, 
+				"res://source/match/units/unitUIAbilities/produceTank.tres", 
+				null, null, null
+				],
 		},
 		"res://source/match/units/AircraftFactory.tscn":
 		{
 			"sight_range": 8.0,
 			"hp": 16,
 			"hp_max": 16,
+			"icon":"res://assets/icons/Stevens/Black and White/AF32 BW.png",
+			"unitAbilities": [
+				null, null, null, 
+				"res://source/match/units/unitUIAbilities/CancelAction.tres", 
+				null, null, null, null, 
+				null, null, null, null, 
+				"res://source/match/units/unitUIAbilities/produceHelicopter.tres", 
+				"res://source/match/units/unitUIAbilities/produceDrone.tres", 
+				null, null
+				],
 		},
 		"res://source/match/units/AntiGroundTurret.tscn":
 		{
@@ -187,7 +470,14 @@ class Units:
 			"attack_damage": 2,
 			"attack_interval": 1.0,
 			"attack_range": 8.0,
+			"icon":"res://assets/icons/Stevens/Black and White/AG32 BW.png",
 			"attack_domains": [Navigation.Domain.TERRAIN],
+			"unitAbilities": [
+				null, null, null, null,
+				null, null, null, null,
+				null, null, null, null,
+				null, null, null, null
+				],
 		},
 		"res://source/match/units/AntiAirTurret.tscn":
 		{
@@ -197,6 +487,7 @@ class Units:
 			"attack_damage": 2,
 			"attack_interval": 0.75,
 			"attack_range": 8.0,
+			"icon":"res://assets/icons/Stevens/Black and White/AA32 BW.png",
 			"attack_domains": [Navigation.Domain.AIR],
 		},
 	}

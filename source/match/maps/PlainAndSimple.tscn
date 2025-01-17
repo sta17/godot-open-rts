@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cbe63rdjw7y4p"]
+[gd_scene load_steps=9 format=3 uid="uid://cbe63rdjw7y4p"]
 
 [ext_resource type="PackedScene" uid="uid://b7c1crf36x1li" path="res://source/match/Map.tscn" id="1_sqrvi"]
 [ext_resource type="Material" uid="uid://co8vfcoqqs5i8" path="res://source/match/resources/materials/terrain.material.tres" id="2_sguro"]
@@ -10,6 +10,24 @@ resource_local_to_scene = true
 material = ExtResource("2_sguro")
 size = Vector2(50, 50)
 center_offset = Vector3(25, 0, 25)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4l41w"]
+sun_angle_max = 200.0
+
+[sub_resource type="Sky" id="Sky_nc4l5"]
+sky_material = SubResource("ProceduralSkyMaterial_4l41w")
+
+[sub_resource type="Environment" id="Environment_xtxha"]
+background_mode = 2
+background_energy_multiplier = 1.2
+sky = SubResource("Sky_nc4l5")
+ambient_light_color = Color(1, 1, 1, 1)
+tonemap_mode = 3
+tonemap_exposure = 0.9
+fog_light_color = Color(0.960784, 0.745098, 0.654902, 1)
+fog_density = 0.0016
+fog_height = 0.25
+fog_height_density = 1.2
 
 [node name="Map" instance=ExtResource("1_sqrvi")]
 
@@ -79,3 +97,19 @@ transform = Transform3D(0.960455, 0, 0.278438, 0, 1, 0, -0.278438, 0, 0.960455, 
 
 [node name="ResourceB4" parent="Resources" index="15" instance=ExtResource("4_4hhxt")]
 transform = Transform3D(-0.976807, 0, 0.214122, 0, 1, 0, -0.214122, 0, -0.976807, 13.7599, -5.72204e-06, 33.992)
+
+[node name="EnvironmentandLight" type="Node3D" parent="." index="4"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="EnvironmentandLight" index="0"]
+transform = Transform3D(0.512043, 0.673162, -0.533541, 0, 0.621148, 0.783694, 0.85896, -0.401285, 0.318054, 0, 38.7614, 0)
+shadow_enabled = true
+shadow_bias = 0.3
+shadow_blur = 0.05
+directional_shadow_split_1 = 0.45
+directional_shadow_split_2 = 0.5
+directional_shadow_split_3 = 0.55
+directional_shadow_blend_splits = true
+directional_shadow_pancake_size = 100.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="EnvironmentandLight" index="1"]
+environment = SubResource("Environment_xtxha")

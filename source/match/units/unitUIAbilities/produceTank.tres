@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="produceUnit" load_steps=4 format=3 uid="uid://dkbxu1mxoqd5q"]
+
+[ext_resource type="Texture2D" uid="uid://cgy2bcmbnt72u" path="res://assets/icons/Stevens/Black and White/T32 BW.png" id="1_s72v3"]
+[ext_resource type="Script" path="res://source/match/units/unitUIAbilities/produceUnit.gd" id="2_eb3fi"]
+[ext_resource type="PackedScene" uid="uid://i58ffvwxbbwm" path="res://source/match/units/Tank.tscn" id="3_nnt5f"]
+
+[resource]
+script = ExtResource("2_eb3fi")
+toBeProduced = ExtResource("3_nnt5f")
+icon = ExtResource("1_s72v3")
+tooltip_source = ExtResource("3_nnt5f")

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="buildStructure" load_steps=4 format=3 uid="uid://cbl0nucjor12d"]
+
+[ext_resource type="Texture2D" uid="uid://due6sfyo025wr" path="res://assets/icons/Stevens/Black and White/AA32 BW.png" id="1_rnd5d"]
+[ext_resource type="Script" path="res://source/match/units/unitUIAbilities/buildStructure.gd" id="2_e8p55"]
+[ext_resource type="PackedScene" uid="uid://cfa8cpnpk5pcb" path="res://source/match/units/AntiAirTurret.tscn" id="3_gsgbh"]
+
+[resource]
+script = ExtResource("2_e8p55")
+toBeBuilt = ExtResource("3_gsgbh")
+icon = ExtResource("1_rnd5d")
+tooltip_source = ExtResource("3_gsgbh")

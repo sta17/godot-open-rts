@@ -1,3 +1,4 @@
+@icon("res://assets/icons/pixel-boy/node_3D/icon_character.png")
 extends Area3D
 
 signal selected
@@ -42,6 +43,8 @@ var _action_locked = false
 
 @onready var _match = find_parent("Match")
 
+@export var unitAbilities = []:
+	set = _set_unitAbilities
 
 func _ready():
 	if not _match.is_node_ready():
@@ -65,6 +68,15 @@ func _set_hp(value):
 func _set_hp_max(value):
 	hp_max = value
 	hp_changed.emit()
+
+
+func _set_unitAbilities(value):
+	for item in value:
+		if item:
+			var tempResource = load(item)
+			unitAbilities.append(tempResource)
+		else:
+			unitAbilities.append(null)
 
 
 func _get_radius():

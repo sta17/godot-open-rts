@@ -1,3 +1,4 @@
+@icon("res://assets/icons/Stevens/Godot Editor Icons/Swords.png")
 extends Node3D
 
 const Unit = preload("res://source/match/units/Unit.gd")
@@ -36,6 +37,7 @@ func _enter_tree():
 func _ready():
 	MatchSignals.setup_and_spawn_unit.connect(_setup_and_spawn_unit)
 	_setup_subsystems_dependent_on_map()
+	_getPlayersandUnitfromMap()
 	_setup_players()
 	_setup_player_units()
 	visible_player = get_tree().get_nodes_in_group("players")[settings.visible_player]
@@ -89,6 +91,15 @@ func _setup_subsystems_dependent_on_map():
 func _recalculate_camera_bounding_planes(map_size: Vector2):
 	_camera.bounding_planes[1] = Plane(-1, 0, 0, -map_size.x)
 	_camera.bounding_planes[3] = Plane(0, 0, -1, -map_size.y)
+
+
+func _getPlayersandUnitfromMap():
+	var mapPlayersNode = map.find_child("Players_Map")
+	if mapPlayersNode:
+		var matchPlayersNode = find_child("Players")
+		for node in mapPlayersNode.get_children():
+			if node is Player:
+				node.reparent(matchPlayersNode)
 
 
 func _setup_players():

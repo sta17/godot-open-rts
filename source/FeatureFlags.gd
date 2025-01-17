@@ -1,3 +1,4 @@
+@icon("res://assets/icons/Stevens/Godot Editor Icons/Gear.png")
 extends Node
 
 @export_group("Game")

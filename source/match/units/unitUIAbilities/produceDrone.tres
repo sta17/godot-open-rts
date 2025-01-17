@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="produceUnit" load_steps=4 format=3 uid="uid://dg28b643knp6r"]
+
+[ext_resource type="Texture2D" uid="uid://dlao1oq8ygdvk" path="res://assets/icons/Stevens/Black and White/D32 BW.png" id="1_7y4fq"]
+[ext_resource type="Script" path="res://source/match/units/unitUIAbilities/produceUnit.gd" id="2_elfij"]
+[ext_resource type="PackedScene" uid="uid://0gow0ughqu8u" path="res://source/match/units/Drone.tscn" id="3_qlabe"]
+
+[resource]
+script = ExtResource("2_elfij")
+toBeProduced = ExtResource("3_qlabe")
+icon = ExtResource("1_7y4fq")
+tooltip_source = ExtResource("3_qlabe")

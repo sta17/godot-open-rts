@@ -1,3 +1,4 @@
+@icon("res://assets/icons/pixel-boy/node_3D/icon_shovel.png")
 extends Area3D
 
 const ResourceDecayAnimation = preload("res://source/match/utils/ResourceDecayAnimation.tscn")

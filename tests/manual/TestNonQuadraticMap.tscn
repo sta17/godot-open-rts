@@ -32,16 +32,16 @@ shader_parameter/texture_units_per_world_unit = 2
 shader_parameter/debug_texture_view = false
 shader_parameter/world_visibility_texture = SubResource("ViewportTexture_x0ak8")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_pww1d"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_x0dr4"]
 viewport_path = NodePath("FogOfWar/CombinedViewport")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_s3a4s"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6wxor"]
 resource_local_to_scene = true
 shader = ExtResource("6_2nbfa")
-shader_parameter/reference_texture = SubResource("ViewportTexture_pww1d")
+shader_parameter/reference_texture = SubResource("ViewportTexture_x0dr4")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_un6ry"]
-viewport_path = NodePath("HUD/MarginContainer/Minimap/MarginContainer/MinimapViewport")
+[sub_resource type="ViewportTexture" id="ViewportTexture_jh1iy"]
+viewport_path = NodePath("UI Collection/HUD/MarginContainer/Minimap/MarginContainer/MinimapViewport")
 
 [node name="Match" instance=ExtResource("1_e8lxh")]
 script = ExtResource("2_2ib5j")
@@ -53,8 +53,8 @@ settings = SubResource("Resource_qgn77")
 [node name="ScreenOverlay" parent="FogOfWar" index="1"]
 material_override = SubResource("ShaderMaterial_g62le")
 
-[node name="FogOfWarMask" parent="HUD/MarginContainer/Minimap/MarginContainer/MinimapViewport" index="3"]
-material = SubResource("ShaderMaterial_s3a4s")
+[node name="FogOfWarMask" parent="UI Collection/HUD/MarginContainer/Minimap/MarginContainer/MinimapViewport" index="3"]
+material = SubResource("ShaderMaterial_6wxor")
 
-[node name="MinimapTextureRect" parent="HUD/MarginContainer/Minimap/MarginContainer" index="1"]
-texture = SubResource("ViewportTexture_un6ry")
+[node name="MinimapTextureRect" parent="UI Collection/HUD/MarginContainer/Minimap/MarginContainer" index="1"]
+texture = SubResource("ViewportTexture_jh1iy")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://camns8fqod8d4"]
+[gd_scene load_steps=41 format=3 uid="uid://camns8fqod8d4"]
 
 [ext_resource type="Script" path="res://source/match/Match.gd" id="1_1555u"]
 [ext_resource type="Script" path="res://source/match/IsometricCamera3D.gd" id="1_qb2ry"]
@@ -30,24 +30,6 @@
 [ext_resource type="PackedScene" uid="uid://ck6vrgdyg7hja" path="res://source/match/handlers/UnitGroupSelectionHandler.tscn" id="27_j2drv"]
 [ext_resource type="PackedScene" uid="uid://b8p6lcwubx1tp" path="res://source/match/handlers/UnitVisibilityHandler.tscn" id="32_fci1c"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ysb0j"]
-sun_angle_max = 200.0
-
-[sub_resource type="Sky" id="Sky_kunr4"]
-sky_material = SubResource("ProceduralSkyMaterial_ysb0j")
-
-[sub_resource type="Environment" id="Environment_qxcnu"]
-background_mode = 2
-background_energy_multiplier = 1.2
-sky = SubResource("Sky_kunr4")
-ambient_light_color = Color(1, 1, 1, 1)
-tonemap_mode = 3
-tonemap_exposure = 0.9
-fog_light_color = Color(0.960784, 0.745098, 0.654902, 1)
-fog_density = 0.0016
-fog_height = 0.25
-fog_height_density = 1.2
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qw0ps"]
 render_priority = 0
 shader = ExtResource("10_weh6c")
@@ -58,28 +40,6 @@ shader_parameter/max_height = 9999.0
 shader_parameter/min_height = -0.05
 
 [sub_resource type="QuadMesh" id="QuadMesh_pv7fp"]
-flip_faces = true
-size = Vector2(2, 2)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_c3tkw"]
-shader = ExtResource("12_pow7t")
-shader_parameter/blurr_factor = 1.0
-shader_parameter/remove_alpha = false
-shader_parameter/overlay = true
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_7yqgo"]
-viewport_path = NodePath("FogOfWar/CombinedViewport")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_5rcuq"]
-resource_local_to_scene = true
-render_priority = 2
-shader = ExtResource("13_jo8b7")
-shader_parameter/color = Color(0, 0, 0, 1)
-shader_parameter/texture_units_per_world_unit = 2
-shader_parameter/debug_texture_view = false
-shader_parameter/world_visibility_texture = SubResource("ViewportTexture_7yqgo")
-
-[sub_resource type="QuadMesh" id="QuadMesh_xttrh"]
 flip_faces = true
 size = Vector2(2, 2)
 
@@ -106,6 +66,28 @@ agent_radius = 0.9
 agent_max_climb = 0.0
 edge_max_error = 1.0
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_c3tkw"]
+shader = ExtResource("12_pow7t")
+shader_parameter/blurr_factor = 1.0
+shader_parameter/remove_alpha = false
+shader_parameter/overlay = true
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_7yqgo"]
+viewport_path = NodePath("FogOfWar/CombinedViewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5rcuq"]
+resource_local_to_scene = true
+render_priority = 2
+shader = ExtResource("13_jo8b7")
+shader_parameter/color = Color(0, 0, 0, 1)
+shader_parameter/texture_units_per_world_unit = 2
+shader_parameter/debug_texture_view = false
+shader_parameter/world_visibility_texture = SubResource("ViewportTexture_7yqgo")
+
+[sub_resource type="QuadMesh" id="QuadMesh_xttrh"]
+flip_faces = true
+size = Vector2(2, 2)
+
 [sub_resource type="ViewportTexture" id="ViewportTexture_vu2gm"]
 viewport_path = NodePath("FogOfWar/CombinedViewport")
 
@@ -115,7 +97,7 @@ shader = ExtResource("19_m1b2v")
 shader_parameter/reference_texture = SubResource("ViewportTexture_vu2gm")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_8q44e"]
-viewport_path = NodePath("HUD/MarginContainer/Minimap/MarginContainer/MinimapViewport")
+viewport_path = NodePath("UI Collection/HUD/MarginContainer/Minimap/MarginContainer/MinimapViewport")
 
 [node name="Match" type="Node3D"]
 script = ExtResource("1_1555u")
@@ -131,20 +113,6 @@ script = ExtResource("1_qb2ry")
 size_max = 60
 bounding_planes = Array[Plane]([Plane(1, 0, 0, 0), Plane(-1, 0, 0, -50), Plane(0, 0, 1, 0), Plane(0, 0, -1, -50)])
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.512043, 0.673162, -0.533541, 0, 0.621148, 0.783694, 0.85896, -0.401285, 0.318054, 0, 38.7614, 0)
-shadow_enabled = true
-shadow_bias = 0.3
-shadow_blur = 0.05
-directional_shadow_split_1 = 0.45
-directional_shadow_split_2 = 0.5
-directional_shadow_split_3 = 0.55
-directional_shadow_blend_splits = true
-directional_shadow_pancake_size = 100.0
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_qxcnu")
-
 [node name="RectangularSelection3D" parent="." instance=ExtResource("5_yi0pu")]
 
 [node name="Terrain" type="StaticBody3D" parent="."]
@@ -158,6 +126,68 @@ material_override = SubResource("ShaderMaterial_qw0ps")
 cast_shadow = 0
 extra_cull_margin = 16384.0
 mesh = SubResource("QuadMesh_pv7fp")
+
+[node name="Navigation" type="Node3D" parent="."]
+script = ExtResource("10_1wfp1")
+
+[node name="Air" type="Node3D" parent="Navigation"]
+script = ExtResource("16_ravsv")
+
+[node name="ReferenceStaticCollider" type="StaticBody3D" parent="Navigation/Air" groups=["air_navigation_input"]]
+visible = false
+collision_layer = 8
+collision_mask = 0
+input_ray_pickable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Navigation/Air/ReferenceStaticCollider"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="Navigation/Air"]
+navigation_mesh = SubResource("NavigationMesh_8emvl")
+
+[node name="Terrain" type="Node3D" parent="Navigation"]
+script = ExtResource("17_6fprk")
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="Navigation/Terrain"]
+navigation_mesh = SubResource("NavigationMesh_exfwj")
+
+[node name="Units" type="Node3D" parent="."]
+
+[node name="Player0" type="Node3D" parent="Units"]
+
+[node name="Player1" type="Node3D" parent="Units"]
+
+[node name="Player2" type="Node3D" parent="Units"]
+
+[node name="Player3" type="Node3D" parent="Units"]
+
+[node name="Player4" type="Node3D" parent="Units"]
+
+[node name="Player5" type="Node3D" parent="Units"]
+
+[node name="Player6" type="Node3D" parent="Units"]
+
+[node name="Player7" type="Node3D" parent="Units"]
+
+[node name="Player8" type="Node3D" parent="Units"]
+
+[node name="Player9" type="Node3D" parent="Units"]
+
+[node name="Handlers" type="Node3D" parent="."]
+
+[node name="ArealUnitSelectionHandler" parent="Handlers" instance=ExtResource("24_aug7m")]
+rectangular_selection_3d = NodePath("../../RectangularSelection3D")
+
+[node name="DoubleClickUnitSelectionHandler" parent="Handlers" instance=ExtResource("25_ldkhw")]
+
+[node name="MouseClickAnimationsHandler" parent="Handlers" instance=ExtResource("22_438pb")]
+
+[node name="UnitGroupSelectionHandler" parent="Handlers" instance=ExtResource("27_j2drv")]
+
+[node name="MatchEndHandler" parent="Handlers" instance=ExtResource("26_4d7im")]
+visible = false
+
+[node name="UnitVisibilityHandler" parent="Handlers" instance=ExtResource("32_fci1c")]
 
 [node name="FogOfWar" type="Node3D" parent="."]
 script = ExtResource("5_eb52t")
@@ -217,59 +247,26 @@ cast_shadow = 0
 extra_cull_margin = 16384.0
 mesh = SubResource("QuadMesh_xttrh")
 
-[node name="Navigation" type="Node3D" parent="."]
-script = ExtResource("10_1wfp1")
+[node name="UI Collection" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="Air" type="Node3D" parent="Navigation"]
-script = ExtResource("16_ravsv")
+[node name="Debug" type="Node3D" parent="UI Collection"]
 
-[node name="ReferenceStaticCollider" type="StaticBody3D" parent="Navigation/Air" groups=["air_navigation_input"]]
+[node name="DiagnosticHUD" parent="UI Collection/Debug" instance=ExtResource("23_pocq6")]
+
+[node name="GodModeHUD" parent="UI Collection/Debug" instance=ExtResource("10_p6gno")]
+
+[node name="FrameIncrementer" parent="UI Collection/Debug" instance=ExtResource("23_exhtd")]
+
+[node name="Menu" parent="UI Collection" instance=ExtResource("22_ofmlu")]
 visible = false
-collision_layer = 8
-collision_mask = 0
-input_ray_pickable = false
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Navigation/Air/ReferenceStaticCollider"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+[node name="HUD" type="CanvasLayer" parent="UI Collection"]
 
-[node name="NavigationRegion3D" type="NavigationRegion3D" parent="Navigation/Air"]
-navigation_mesh = SubResource("NavigationMesh_8emvl")
-
-[node name="Terrain" type="Node3D" parent="Navigation"]
-script = ExtResource("17_6fprk")
-
-[node name="NavigationRegion3D" type="NavigationRegion3D" parent="Navigation/Terrain"]
-navigation_mesh = SubResource("NavigationMesh_exfwj")
-
-[node name="Units" type="Node3D" parent="."]
-
-[node name="Player0" type="Node3D" parent="Units"]
-
-[node name="Player1" type="Node3D" parent="Units"]
-
-[node name="Player2" type="Node3D" parent="Units"]
-
-[node name="Player3" type="Node3D" parent="Units"]
-
-[node name="Player4" type="Node3D" parent="Units"]
-
-[node name="Player5" type="Node3D" parent="Units"]
-
-[node name="Player6" type="Node3D" parent="Units"]
-
-[node name="Player7" type="Node3D" parent="Units"]
-
-[node name="Player8" type="Node3D" parent="Units"]
-
-[node name="Player9" type="Node3D" parent="Units"]
-
-[node name="UI" type="CanvasLayer" parent="."]
-
-[node name="RectangularSelection2D" parent="UI" instance=ExtResource("16_ccb0o")]
-
-[node name="HUD" type="CanvasLayer" parent="."]
-
-[node name="MarginContainer" type="MarginContainer" parent="HUD"]
+[node name="MarginContainer" type="MarginContainer" parent="UI Collection/HUD"]
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -279,22 +276,22 @@ grow_vertical = 0
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="Minimap" type="PanelContainer" parent="HUD/MarginContainer"]
+[node name="Minimap" type="PanelContainer" parent="UI Collection/HUD/MarginContainer"]
 layout_mode = 2
 script = ExtResource("17_0bfte")
 
-[node name="MarginContainer" type="MarginContainer" parent="HUD/MarginContainer/Minimap"]
+[node name="MarginContainer" type="MarginContainer" parent="UI Collection/HUD/MarginContainer/Minimap"]
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="MinimapViewport" type="SubViewport" parent="HUD/MarginContainer/Minimap/MarginContainer"]
+[node name="MinimapViewport" type="SubViewport" parent="UI Collection/HUD/MarginContainer/Minimap/MarginContainer"]
 disable_3d = true
 size = Vector2i(100, 100)
 
-[node name="Background" type="ColorRect" parent="HUD/MarginContainer/Minimap/MarginContainer/MinimapViewport"]
+[node name="Background" type="ColorRect" parent="UI Collection/HUD/MarginContainer/Minimap/MarginContainer/MinimapViewport"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -302,7 +299,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.351562, 0.351562, 0.351562, 1)
 
-[node name="EditorOnlyDummyUnit" type="ColorRect" parent="HUD/MarginContainer/Minimap/MarginContainer/MinimapViewport"]
+[node name="EditorOnlyDummyUnit" type="ColorRect" parent="UI Collection/HUD/MarginContainer/Minimap/MarginContainer/MinimapViewport"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -316,7 +313,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 0, 0, 1)
 
-[node name="EditorOnlyDummyUnit2" type="ColorRect" parent="HUD/MarginContainer/Minimap/MarginContainer/MinimapViewport"]
+[node name="EditorOnlyDummyUnit2" type="ColorRect" parent="UI Collection/HUD/MarginContainer/Minimap/MarginContainer/MinimapViewport"]
 anchors_preset = -1
 anchor_left = 0.25
 anchor_right = 0.25
@@ -326,7 +323,7 @@ offset_bottom = 2.0
 grow_horizontal = 2
 color = Color(1, 0, 0, 1)
 
-[node name="FogOfWarMask" type="ColorRect" parent="HUD/MarginContainer/Minimap/MarginContainer/MinimapViewport"]
+[node name="FogOfWarMask" type="ColorRect" parent="UI Collection/HUD/MarginContainer/Minimap/MarginContainer/MinimapViewport"]
 material = SubResource("ShaderMaterial_3nec5")
 anchors_preset = 15
 anchor_right = 1.0
@@ -335,53 +332,53 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="CameraIndicator" type="Line2D" parent="HUD/MarginContainer/Minimap/MarginContainer/MinimapViewport"]
+[node name="CameraIndicator" type="Line2D" parent="UI Collection/HUD/MarginContainer/Minimap/MarginContainer/MinimapViewport"]
 points = PackedVector2Array(5, 5, 5, 30, 30, 30, 30, 5, 5, 5)
 width = 1.0
 begin_cap_mode = 1
 end_cap_mode = 1
 antialiased = true
 
-[node name="MinimapTextureRect" type="TextureRect" parent="HUD/MarginContainer/Minimap/MarginContainer"]
+[node name="MinimapTextureRect" type="TextureRect" parent="UI Collection/HUD/MarginContainer/Minimap/MarginContainer"]
 layout_mode = 2
 texture = SubResource("ViewportTexture_8q44e")
 stretch_mode = 5
 
-[node name="MarginContainer2" type="MarginContainer" parent="HUD"]
+[node name="MarginContainer2" type="MarginContainer" parent="UI Collection/HUD"]
 offset_right = 40.0
 offset_bottom = 11.0
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 
-[node name="Resources" type="VBoxContainer" parent="HUD/MarginContainer2"]
+[node name="Resources" type="VBoxContainer" parent="UI Collection/HUD/MarginContainer2"]
 layout_mode = 2
 script = ExtResource("16_vjwpn")
 
-[node name="ResourcesBar" parent="HUD/MarginContainer2/Resources" instance=ExtResource("12_r13sk")]
+[node name="ResourcesBar" parent="UI Collection/HUD/MarginContainer2/Resources" instance=ExtResource("12_r13sk")]
 layout_mode = 2
 
-[node name="ResourcesBar2" parent="HUD/MarginContainer2/Resources" instance=ExtResource("12_r13sk")]
+[node name="ResourcesBar2" parent="UI Collection/HUD/MarginContainer2/Resources" instance=ExtResource("12_r13sk")]
 layout_mode = 2
 
-[node name="ResourcesBar3" parent="HUD/MarginContainer2/Resources" instance=ExtResource("12_r13sk")]
+[node name="ResourcesBar3" parent="UI Collection/HUD/MarginContainer2/Resources" instance=ExtResource("12_r13sk")]
 layout_mode = 2
 
-[node name="ResourcesBar4" parent="HUD/MarginContainer2/Resources" instance=ExtResource("12_r13sk")]
+[node name="ResourcesBar4" parent="UI Collection/HUD/MarginContainer2/Resources" instance=ExtResource("12_r13sk")]
 layout_mode = 2
 
-[node name="ResourcesBar5" parent="HUD/MarginContainer2/Resources" instance=ExtResource("12_r13sk")]
+[node name="ResourcesBar5" parent="UI Collection/HUD/MarginContainer2/Resources" instance=ExtResource("12_r13sk")]
 layout_mode = 2
 
-[node name="ResourcesBar6" parent="HUD/MarginContainer2/Resources" instance=ExtResource("12_r13sk")]
+[node name="ResourcesBar6" parent="UI Collection/HUD/MarginContainer2/Resources" instance=ExtResource("12_r13sk")]
 layout_mode = 2
 
-[node name="ResourcesBar7" parent="HUD/MarginContainer2/Resources" instance=ExtResource("12_r13sk")]
+[node name="ResourcesBar7" parent="UI Collection/HUD/MarginContainer2/Resources" instance=ExtResource("12_r13sk")]
 layout_mode = 2
 
-[node name="ResourcesBar8" parent="HUD/MarginContainer2/Resources" instance=ExtResource("12_r13sk")]
+[node name="ResourcesBar8" parent="UI Collection/HUD/MarginContainer2/Resources" instance=ExtResource("12_r13sk")]
 layout_mode = 2
 
-[node name="MarginContainer3" type="MarginContainer" parent="HUD"]
+[node name="MarginContainer3" type="MarginContainer" parent="UI Collection/HUD"]
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
@@ -394,40 +391,17 @@ grow_vertical = 0
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HUD/MarginContainer3"]
+[node name="VBoxContainer" type="VBoxContainer" parent="UI Collection/HUD/MarginContainer3"]
 layout_mode = 2
 theme_override_constants/separation = 5
 
-[node name="ProductionQueue" parent="HUD/MarginContainer3/VBoxContainer" instance=ExtResource("13_qv3xn")]
+[node name="ProductionQueue" parent="UI Collection/HUD/MarginContainer3/VBoxContainer" instance=ExtResource("13_qv3xn")]
 layout_mode = 2
 
-[node name="UnitMenus" parent="HUD/MarginContainer3/VBoxContainer" instance=ExtResource("13_6cypl")]
+[node name="UnitMenus" parent="UI Collection/HUD/MarginContainer3/VBoxContainer" instance=ExtResource("13_6cypl")]
 layout_mode = 2
 size_flags_horizontal = 8
 
-[node name="Menu" parent="." instance=ExtResource("22_ofmlu")]
-visible = false
+[node name="UI" type="CanvasLayer" parent="UI Collection"]
 
-[node name="Debug" type="Node3D" parent="."]
-
-[node name="DiagnosticHUD" parent="Debug" instance=ExtResource("23_pocq6")]
-
-[node name="GodModeHUD" parent="Debug" instance=ExtResource("10_p6gno")]
-
-[node name="FrameIncrementer" parent="Debug" instance=ExtResource("23_exhtd")]
-
-[node name="Handlers" type="Node3D" parent="."]
-
-[node name="ArealUnitSelectionHandler" parent="Handlers" instance=ExtResource("24_aug7m")]
-rectangular_selection_3d = NodePath("../../RectangularSelection3D")
-
-[node name="DoubleClickUnitSelectionHandler" parent="Handlers" instance=ExtResource("25_ldkhw")]
-
-[node name="MouseClickAnimationsHandler" parent="Handlers" instance=ExtResource("22_438pb")]
-
-[node name="UnitGroupSelectionHandler" parent="Handlers" instance=ExtResource("27_j2drv")]
-
-[node name="MatchEndHandler" parent="Handlers" instance=ExtResource("26_4d7im")]
-visible = false
-
-[node name="UnitVisibilityHandler" parent="Handlers" instance=ExtResource("32_fci1c")]
+[node name="RectangularSelection2D" parent="UI Collection/UI" instance=ExtResource("16_ccb0o")]

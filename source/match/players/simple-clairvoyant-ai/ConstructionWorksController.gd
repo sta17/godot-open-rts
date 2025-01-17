@@ -1,3 +1,4 @@
+@icon("res://assets/icons/Stevens/Godot Editor Icons/AI.png")
 extends Node
 
 const Structure = preload("res://source/match/units/Structure.gd")

@@ -1,3 +1,4 @@
+@icon("res://assets/icons/pixel-boy/color/icon_map_2.png")
 @tool
 extends Node3D
 

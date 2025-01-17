@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bkqj84vbodkb6"]
+[gd_scene load_steps=10 format=3 uid="uid://bkqj84vbodkb6"]
 
 [ext_resource type="PackedScene" uid="uid://b7c1crf36x1li" path="res://source/match/Map.tscn" id="1_c0hq7"]
 [ext_resource type="Material" uid="uid://co8vfcoqqs5i8" path="res://source/match/resources/materials/terrain.material.tres" id="2_hmoqb"]
@@ -11,6 +11,24 @@ resource_local_to_scene = true
 material = ExtResource("2_hmoqb")
 size = Vector2(100, 100)
 center_offset = Vector3(50, 0, 50)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ptggo"]
+sun_angle_max = 200.0
+
+[sub_resource type="Sky" id="Sky_n0034"]
+sky_material = SubResource("ProceduralSkyMaterial_ptggo")
+
+[sub_resource type="Environment" id="Environment_0pfbn"]
+background_mode = 2
+background_energy_multiplier = 1.2
+sky = SubResource("Sky_n0034")
+ambient_light_color = Color(1, 1, 1, 1)
+tonemap_mode = 3
+tonemap_exposure = 0.9
+fog_light_color = Color(0.960784, 0.745098, 0.654902, 1)
+fog_density = 0.0016
+fog_height = 0.25
+fog_height_density = 1.2
 
 [node name="Map" instance=ExtResource("1_c0hq7")]
 size = Vector2(100, 100)
@@ -605,3 +623,19 @@ transform = Transform3D(-0.229008, 0, 2.99125, 0, 1.5, 0, -2.99125, 0, -0.229008
 
 [node name="RockLargeA24" parent="Decorations/Wall7" index="23" instance=ExtResource("5_blryv")]
 transform = Transform3D(2.21699, 0, 2.02113, 0, 1.5, 0, -2.02113, 0, 2.21699, 11.1121, 9.53676e-07, 86.6327)
+
+[node name="EnvironmentandLight" type="Node3D" parent="." index="4"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="EnvironmentandLight" index="0"]
+transform = Transform3D(0.512043, 0.673162, -0.533541, 0, 0.621148, 0.783694, 0.85896, -0.401285, 0.318054, 0, 38.7614, 0)
+shadow_enabled = true
+shadow_bias = 0.3
+shadow_blur = 0.05
+directional_shadow_split_1 = 0.45
+directional_shadow_split_2 = 0.5
+directional_shadow_split_3 = 0.55
+directional_shadow_blend_splits = true
+directional_shadow_pancake_size = 100.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="EnvironmentandLight" index="1"]
+environment = SubResource("Environment_0pfbn")

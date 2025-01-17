@@ -1,3 +1,4 @@
+@icon("res://assets/icons/Stevens/Godot Editor Icons/AI.png")
 extends Node
 
 const TARGET_SWITICHING_TIME_MIN_S = 0.5

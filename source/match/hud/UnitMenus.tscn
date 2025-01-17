@@ -1,11 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://cwcedr6jj7yty"]
+[gd_scene load_steps=2 format=3 uid="uid://cwcedr6jj7yty"]
 
-[ext_resource type="PackedScene" uid="uid://pawymiv0p8ab" path="res://source/match/hud/unit-menus/GenericMenu.tscn" id="1_4ci70"]
 [ext_resource type="Script" path="res://source/match/hud/UnitMenus.gd" id="1_hugbq"]
-[ext_resource type="PackedScene" uid="uid://d4iqf0mjt5ub3" path="res://source/match/hud/unit-menus/CommandCenterMenu.tscn" id="3_hqirh"]
-[ext_resource type="PackedScene" uid="uid://btvii654eytjr" path="res://source/match/hud/unit-menus/WorkerMenu.tscn" id="4_1s3pp"]
-[ext_resource type="PackedScene" uid="uid://d1b3uq81171lf" path="res://source/match/hud/unit-menus/VehicleFactoryMenu.tscn" id="4_ngnkq"]
-[ext_resource type="PackedScene" uid="uid://dk3no87nfpp8i" path="res://source/match/hud/unit-menus/AircraftFactoryMenu.tscn" id="5_jocca"]
 
 [node name="UnitMenus" type="PanelContainer"]
 script = ExtResource("1_hugbq")
@@ -85,21 +80,136 @@ layout_mode = 2
 custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
 
-[node name="GenericMenu" parent="MarginContainer" instance=ExtResource("1_4ci70")]
+[node name="Buttons" type="GridContainer" parent="MarginContainer"]
+custom_minimum_size = Vector2(204, 204)
 layout_mode = 2
-mouse_filter = 2
+columns = 4
 
-[node name="CommandCenterMenu" parent="MarginContainer" instance=ExtResource("3_hqirh")]
+[node name="Button00" type="Button" parent="MarginContainer/Buttons"]
+custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
-mouse_filter = 2
+focus_mode = 0
+icon_alignment = 1
+expand_icon = true
 
-[node name="VehicleFactoryMenu" parent="MarginContainer" instance=ExtResource("4_ngnkq")]
+[node name="Button01" type="Button" parent="MarginContainer/Buttons"]
+custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
-mouse_filter = 2
+focus_mode = 0
+icon_alignment = 1
+expand_icon = true
 
-[node name="AircraftFactoryMenu" parent="MarginContainer" instance=ExtResource("5_jocca")]
+[node name="Button02" type="Button" parent="MarginContainer/Buttons"]
+custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
-mouse_filter = 2
+focus_mode = 0
+icon_alignment = 1
+expand_icon = true
 
-[node name="WorkerMenu" parent="MarginContainer" instance=ExtResource("4_1s3pp")]
+[node name="Button03" type="Button" parent="MarginContainer/Buttons"]
+custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
+focus_mode = 0
+icon_alignment = 1
+expand_icon = true
+
+[node name="Button04" type="Button" parent="MarginContainer/Buttons"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+focus_mode = 0
+icon_alignment = 1
+expand_icon = true
+
+[node name="Button05" type="Button" parent="MarginContainer/Buttons"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+focus_mode = 0
+icon_alignment = 1
+expand_icon = true
+
+[node name="Button06" type="Button" parent="MarginContainer/Buttons"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+focus_mode = 0
+icon_alignment = 1
+expand_icon = true
+
+[node name="Button07" type="Button" parent="MarginContainer/Buttons"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+focus_mode = 0
+icon_alignment = 1
+expand_icon = true
+
+[node name="Button08" type="Button" parent="MarginContainer/Buttons"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+focus_mode = 0
+icon_alignment = 1
+expand_icon = true
+
+[node name="Button09" type="Button" parent="MarginContainer/Buttons"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+focus_mode = 0
+icon_alignment = 1
+expand_icon = true
+
+[node name="Button10" type="Button" parent="MarginContainer/Buttons"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+focus_mode = 0
+icon_alignment = 1
+expand_icon = true
+
+[node name="Button11" type="Button" parent="MarginContainer/Buttons"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+focus_mode = 0
+icon_alignment = 1
+expand_icon = true
+
+[node name="Button12" type="Button" parent="MarginContainer/Buttons"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+focus_mode = 0
+icon_alignment = 1
+expand_icon = true
+
+[node name="Button13" type="Button" parent="MarginContainer/Buttons"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+focus_mode = 0
+icon_alignment = 1
+expand_icon = true
+
+[node name="Button14" type="Button" parent="MarginContainer/Buttons"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+focus_mode = 0
+icon_alignment = 1
+expand_icon = true
+
+[node name="Button15" type="Button" parent="MarginContainer/Buttons"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+focus_mode = 0
+icon_alignment = 1
+expand_icon = true
+
+[connection signal="pressed" from="MarginContainer/Buttons/Button00" to="." method="_on_button_00_pressed"]
+[connection signal="pressed" from="MarginContainer/Buttons/Button01" to="." method="_on_button_01_pressed"]
+[connection signal="pressed" from="MarginContainer/Buttons/Button02" to="." method="_on_button_02_pressed"]
+[connection signal="pressed" from="MarginContainer/Buttons/Button03" to="." method="_on_button_03_pressed"]
+[connection signal="pressed" from="MarginContainer/Buttons/Button04" to="." method="_on_button_04_pressed"]
+[connection signal="pressed" from="MarginContainer/Buttons/Button05" to="." method="_on_button_05_pressed"]
+[connection signal="pressed" from="MarginContainer/Buttons/Button06" to="." method="_on_button_06_pressed"]
+[connection signal="pressed" from="MarginContainer/Buttons/Button07" to="." method="_on_button_07_pressed"]
+[connection signal="pressed" from="MarginContainer/Buttons/Button08" to="." method="_on_button_08_pressed"]
+[connection signal="pressed" from="MarginContainer/Buttons/Button09" to="." method="_on_button_09_pressed"]
+[connection signal="pressed" from="MarginContainer/Buttons/Button10" to="." method="_on_button_10_pressed"]
+[connection signal="pressed" from="MarginContainer/Buttons/Button11" to="." method="_on_button_11_pressed"]
+[connection signal="pressed" from="MarginContainer/Buttons/Button12" to="." method="_on_button_12_pressed"]
+[connection signal="pressed" from="MarginContainer/Buttons/Button13" to="." method="_on_button_13_pressed"]
+[connection signal="pressed" from="MarginContainer/Buttons/Button14" to="." method="_on_button_14_pressed"]
+[connection signal="pressed" from="MarginContainer/Buttons/Button15" to="." method="_on_button_15_pressed"]

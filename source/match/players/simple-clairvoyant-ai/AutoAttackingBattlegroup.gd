@@ -1,3 +1,4 @@
+@icon("res://assets/icons/Stevens/Godot Editor Icons/AI.png")
 # TODO: monitor attached units and fix their actions if necessary
 extends Node
 
