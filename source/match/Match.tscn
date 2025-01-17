@@ -43,6 +43,32 @@ shader_parameter/min_height = -0.05
 flip_faces = true
 size = Vector2(2, 2)
 
+<<<<<<< HEAD
+=======
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_c3tkw"]
+shader = ExtResource("12_pow7t")
+shader_parameter/blurr_factor = 1.0
+shader_parameter/remove_alpha = false
+shader_parameter/overlay = true
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_7yqgo"]
+viewport_path = NodePath("FogOfWar/CombinedViewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5rcuq"]
+resource_local_to_scene = true
+render_priority = 2
+shader = ExtResource("13_jo8b7")
+shader_parameter/color = Color(0, 0, 0, 1)
+shader_parameter/texture_units_per_world_unit = 2
+shader_parameter/outer_margin_for_fade_out = 2.0
+shader_parameter/debug_texture_view = false
+shader_parameter/world_visibility_texture = SubResource("ViewportTexture_7yqgo")
+
+[sub_resource type="QuadMesh" id="QuadMesh_xttrh"]
+flip_faces = true
+size = Vector2(2, 2)
+
+>>>>>>> a628ad3bb6a9a903587a181a7ee3300dbf735e81
 [sub_resource type="NavigationMesh" id="NavigationMesh_8emvl"]
 geometry_parsed_geometry_type = 1
 geometry_collision_mask = 4278190088
